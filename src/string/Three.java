@@ -6,18 +6,29 @@ public class Three {
 
     public String solution(String str) {
         String answer = "";
-        String temp="";
-        int count = 0;
-
-        for(char tmp : str.toCharArray()){
-            if(answer!=" "){
-                temp += tmp;
-            }else{
-                if(answer.length() > temp.length()){
-
-                }
+        int cnt = Integer.MIN_VALUE;
+        int index;
+        while((index = str.indexOf(" ")) != -1){
+            String tmp = str.substring(0,index);
+            int len = tmp.length();
+            if(len > cnt){
+                cnt = len;
+                answer = tmp;
             }
+            str = str.substring(index+1);
         }
+        if (str.length() > cnt) {
+            answer = str;
+        }
+
+//        String[] temp= str.split(" ");
+//        for(String tmp : temp){
+//            int len = tmp.length();
+//            if(len > cnt){
+//                cnt = len;
+//                answer = tmp;
+//            }
+//        }
 
         return answer;
     }
