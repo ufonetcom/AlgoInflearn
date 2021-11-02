@@ -13,7 +13,12 @@ public class Peaks {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 flag=true;
-                if(i>0 && )
+                if(i>0 && arr[i][j]<=arr[i-1][j]) flag=false; //i가 맨 윗줄에 있을때 그보다 한칸 위 서치 제외
+                if(i<n-1 && arr[i][j]<=arr[i+1][j]) flag=false; //i가 맨 아랫줄에 있을때 그보다 한칸 아래 서치 제외
+                if(j>0 && arr[i][j]<=arr[i][j-1]) flag=false; //j가 맨 왼쪽에 있을때 그보다 한칸 왼쪽 서치 제외
+                if(j<n-1 && arr[i][j]<=arr[i][j+1]) flag=false; //j가 맨 오른쪽에 있을때 그보다 한칸 오른쪽 서치 제외
+
+                if(flag) answer++;
             }
         }
 //        //다른 풀이
