@@ -1,21 +1,34 @@
 package twoPointersSlidingWindow;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class MergeTwoArray {
-    public int[] solution(int n, int[] arr, int m, int[] arr2) {
-        int sum = n+m;
-        int[] answer = new int[sum];
+    public ArrayList<Integer> solution(int n, int[] arr, int m, int[] arr2) {
 
-        for (int i = 0; i < sum; i++) {
-            if(i<n){
-                answer[i] = arr[i];
-            }else {
-                answer[i] = arr2[i-n];
-            }
+        //다른 풀이
+        ArrayList<Integer> answer = new ArrayList<>();
+        int p1 = 0, p2 = 0;
+        while (p1 < n && p2 < m) {
+            if(arr[p1] < arr2[p2]) answer.add(arr[p1++]);
+            else answer.add(arr2[p2++]);
         }
-        Arrays.sort(answer);
+        while (p1<n) answer.add(arr[p1++]);
+        while (p2<m) answer.add(arr2[p2++]);
+
+//        나의풀이
+//        int sum = n+m;
+//        int[] answer = new int[sum];
+//
+//        for (int i = 0; i < sum; i++) {
+//            if(i<n){
+//                answer[i] = arr[i];
+//            }else {
+//                answer[i] = arr2[i-n];
+//            }
+//        }
+//        Arrays.sort(answer);
 
         return answer;
     }
