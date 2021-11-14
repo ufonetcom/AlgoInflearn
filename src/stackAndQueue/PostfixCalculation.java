@@ -6,6 +6,19 @@ import java.util.Stack;
 public class PostfixCalculation {
     public int solution(String n) {
         int answer = 0;
+        Stack<Integer> stack = new Stack<>();
+        for(char i : n.toCharArray()){
+            if(Character.isDigit(i)) stack.push(i-48);
+            else {
+                int rt = stack.pop();
+                int lt = stack.pop();
+                if(i=='+') stack.push(rt+lt);
+                else if(i=='-') stack.push(rt-lt);
+                else if(i=='*') stack.push(rt*lt);
+                else if(i=='/') stack.push(rt/lt);
+            }
+        }
+        answer=stack.get(0);
 
         return answer;
     }
