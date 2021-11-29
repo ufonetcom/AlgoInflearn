@@ -1,14 +1,14 @@
 package recursiveTreeGraphexDFSBFS;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Recursivefunction {
-    public int solution(int n) {
-        int answer = 0;
-
-
-        return answer;
+    public void DFS(int n) {
+        if(n==0) return;
+        else{
+            DFS(n-1);
+            System.out.print(n+" ");
+        }
     }
 
     public static void main(String[] args){
@@ -16,8 +16,7 @@ public class Recursivefunction {
         Scanner kb = new Scanner(System.in);
 
         int n = kb.nextInt();
-
-        System.out.println(sol.solution(n));
+        sol.DFS(n);
 
     }
 }
