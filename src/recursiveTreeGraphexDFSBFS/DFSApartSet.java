@@ -1,5 +1,6 @@
 package recursiveTreeGraphexDFSBFS;
 
+//부분집합 구하기(DFS)
 public class DFSApartSet {
     static int n;
     static int[] ch;
