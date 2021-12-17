@@ -9,11 +9,13 @@ public class GuessToSequence {
     static int n, f;
     boolean flag = false;
     int[][] dy = new int[35][35];
-    public int combi(int n, int r) {
+
+    public int combi(int n, int r) { //컴비네이션 함수 알아두기.
         if(dy[n][r]>0) return dy[n][r];
         if(n==r || r==0) return 1;
         else return dy[n][r]=combi(n-1, r-1)+combi(n-1, r);
     }
+
     public void DFS(int n, int r) {
 
     }
