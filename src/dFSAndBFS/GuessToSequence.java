@@ -16,8 +16,23 @@ public class GuessToSequence {
         else return dy[n][r]=combi(n-1, r-1)+combi(n-1, r);
     }
 
-    public void DFS(int n, int r) {
-
+    public void DFS(int L, int sum) {
+        if(flag) return;
+        if(L==n){
+            if(sum==f){
+                for(int x:p) System.out.print(x+" ");
+                flag=true;
+            }
+        }else {
+            for(int i=1; i<=n; i++){
+                if(ch[i]==0){
+                    ch[i]=1;
+                    p[L]=i;
+                    DFS(L+1, sum+(p[L]*b[L]));
+                    ch[i]=0;
+                }
+            }
+        }
     }
 
     public static void main(String[] args){
@@ -31,6 +46,7 @@ public class GuessToSequence {
         for(int i=0; i<n; i++){
             b[i]=sol.combi(n-1,i);
         }
+        sol.DFS(0,0);
     }
 }
 
